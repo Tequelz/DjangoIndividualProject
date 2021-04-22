@@ -142,3 +142,5 @@ REST_FRAMEWORK = {
 }
 
 SITE_ID = 1
+
+django_heroku.settings(local())
