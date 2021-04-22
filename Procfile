@@ -1,3 +1,1 @@
-
-config:set DISABLE_COLLECTSTATIC=1
-web: gunicorn contactapi.wsgi
+web: gunicorn my_api.wsgi
