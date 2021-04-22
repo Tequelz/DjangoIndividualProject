@@ -145,3 +145,5 @@ REST_FRAMEWORK = {
 SITE_ID = 1
 
 django_heroku.settings(locals())
+
+STATIC_ROOT='staticfiles'
