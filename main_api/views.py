@@ -41,6 +41,9 @@ from .models import Post, LessonID, TeachingSession
 class PostView(mixins.ListModelMixin,
                mixins.CreateModelMixin,
                generics.GenericAPIView):
+
+    permission_classes = (IsAuthenticated,)
+
     serializer_class = PostSerializer
     queryset = Post.objects.all()
 
