@@ -9,9 +9,10 @@ from django.http import JsonResponse
 
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework import generics
 from rest_framework import mixins
+from django.contrib.auth import get_user_model
 
 
 
@@ -68,6 +69,11 @@ class TeachingSessionCreateView(generics.ListCreateAPIView):
     serializer_class = TeachingSessionSerializer
     queryset = TeachingSession.objects.all()
 
+
 class LessonCreateView(generics.ListCreateAPIView):
+
+    permission_classes = (IsAdminUser,)
+
     serializer_class = LessonSerializer
     queryset = LessonID.objects.all()
+
