@@ -2,7 +2,7 @@ import json
 from itertools import chain
 
 from django.shortcuts import render
-from django.http import JsonResponse
+from django.http import JsonResponse, request
 # Create your views here.
 
 #third party api
@@ -76,5 +76,10 @@ class LessonCreateView(generics.ListCreateAPIView):
     permission_classes = (IsAdminUser,)
 
     serializer_class = LessonSerializer
-    queryset = LessonID.objects.filter(lec_teacher=user.id)
+    model = LessonID
+
+    def get_queryset(self):
+        user = self.request.user
+
+        return LessonID.objects.filter(lec_teacher=user)
 
