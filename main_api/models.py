@@ -1,3 +1,4 @@
+from django.core.exceptions import NON_FIELD_ERRORS
 from django.db import models
 from django.contrib.auth import get_user_model
 
@@ -30,3 +31,9 @@ class TeachingSession(models.Model):
 
     class Meta:
         unique_together = ('username','lesson_id',)
+
+        error_messages = {
+            NON_FIELD_ERRORS: {
+                'unique_together': "You're already logged into the lesson",
+            }
+        }
