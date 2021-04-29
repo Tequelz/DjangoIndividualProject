@@ -35,5 +35,5 @@ class TeachingSession(models.Model):
         error_messages = {
             NON_FIELD_ERRORS: {
                 'unique_together': "You're already logged into the lesson",
-            }
+            },
         }
