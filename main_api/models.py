@@ -29,6 +29,4 @@ class TeachingSession(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        constraints = [
-            models.UniqueConstraint(fields=['username', 'lesson_id'], name='uniqueLesson')
-        ]
+        unique_together = ('username','lesson_id',)
