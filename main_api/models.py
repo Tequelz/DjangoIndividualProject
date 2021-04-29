@@ -1,7 +1,5 @@
-from django.core.exceptions import NON_FIELD_ERRORS
 from django.db import models
 from django.contrib.auth import get_user_model
-
 
 user = get_user_model()
 
@@ -30,10 +28,4 @@ class TeachingSession(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        unique_together = ('username','lesson_id',)
-
-        error_messages = {
-            NON_FIELD_ERRORS: {
-                'unique_together': "You're already logged into the lesson",
-            },
-        }
+        models.UniqueConstraint(fields=['username','lesson_id'],name='unique_sign_in')
