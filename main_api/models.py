@@ -28,4 +28,6 @@ class TeachingSession(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        models.UniqueConstraint(fields=['username','lesson_id'],name='unique_sign_in')
+        constraints = [
+            models.UniqueConstraint(fields=['username', 'lesson_id'], name='unique_sign_in')
+        ]
