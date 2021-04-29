@@ -76,5 +76,5 @@ class LessonCreateView(generics.ListCreateAPIView):
     permission_classes = (IsAdminUser,)
 
     serializer_class = LessonSerializer
-    queryset = LessonID.objects.filter(lec_teacher=user.pk)
+    queryset = LessonID.objects.filter(lec_teacher=user.id)
 
