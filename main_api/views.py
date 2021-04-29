@@ -17,7 +17,8 @@ from django.contrib.auth import get_user_model
 
 
 from .serializers import PostSerializer, LessonSerializer, TeachingSessionSerializer, RegisterSerializer
-from .models import Post, LessonID, TeachingSession
+from .models import Post, LessonID, TeachingSession, user
+
 
 # class TestView(APIView):
 #
@@ -75,5 +76,5 @@ class LessonCreateView(generics.ListCreateAPIView):
     permission_classes = (IsAdminUser,)
 
     serializer_class = LessonSerializer
-    queryset = LessonID.objects.all()
+    queryset = LessonID.objects.filter(lec_teacher=user.pk)
 
