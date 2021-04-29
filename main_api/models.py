@@ -27,7 +27,13 @@ class TeachingSession(models.Model):
     lesson_id = models.ForeignKey(LessonID,on_delete=models.CASCADE,default=0)
     timestamp = models.DateTimeField(auto_now_add=True)
 
-    class Meta:
-        constraints = [
-            models.UniqueConstraint(fields=['username', 'lesson_id'], name='unique_sign_in'),
-        ]
+    def validate_unique(self,*args,**kwargs):
+        super().validate_unique(*args,**kwargs)
+        if self.__class__.objects.filter(username=self.username,lesson_id=self.lesson_id).exists():
+            return {"invalid":"not unique"}
+
+
+    # class Meta:
+    #     constraints = [
+    #         models.UniqueConstraint(fields=['username', 'lesson_id'], name='unique_sign_in'),
+    #     ]
