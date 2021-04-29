@@ -27,3 +27,6 @@ class TeachingSession(models.Model):
     username =models.ForeignKey(user,on_delete=models.CASCADE)
     lesson_id = models.ForeignKey(LessonID,on_delete=models.CASCADE,default=0)
     timestamp = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('username','lesson_id',)
