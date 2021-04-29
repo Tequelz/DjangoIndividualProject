@@ -29,5 +29,5 @@ class TeachingSession(models.Model):
 
     class Meta:
         constraints = [
-            models.UniqueConstraint(fields=['username', 'lesson_id'], name='unique_sign_in')
+            models.UniqueConstraint(fields=['username', 'lesson_id'], name='unique_sign_in'),
         ]
