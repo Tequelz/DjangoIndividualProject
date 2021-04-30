@@ -60,11 +60,11 @@ class LectureSessionCreateView(generics.ListCreateAPIView):
     queryset = LectureSession.objects.all()
 
 
-    def get(self, request, *args, **kwargs):
-        qs = LectureSession.objects.filter(lecture_id = request.data.get('lec_id'))
-        serializer = LectureSessionSerializer(qs,many=True)
-        data = serializer.data
-        return JsonResponse(data, safe=False)
+    # def get(self, request, *args, **kwargs):
+    #     qs = LectureSession.objects.filter(lecture_id = request.data.get('lec_id'))
+    #     serializer = LectureSessionSerializer(qs,many=True)
+    #     data = serializer.data
+    #     return JsonResponse(data, safe=False)
 
 
 
