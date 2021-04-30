@@ -73,7 +73,7 @@ class TeachingSessionCreateView(generics.ListCreateAPIView):
     def get(self, request, *args, **kwargs):
         qs = TeachingSession.objects.filter(lesson_id=request.data.get("code"))
 
-        serializer = TeachingSessionSerializer(qs)
+        serializer = TeachingSessionSerializer(data=qs)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
