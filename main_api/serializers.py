@@ -16,7 +16,7 @@ class LectureSerializer(serializers.ModelSerializer):
     class Meta:
         model = Lecture
         fields = (
-            'lec_id','lec_number' ,'lec_time', 'lec_length',
+            'lec_id','lec_number', 'lec_length',
         )
 
 class LectureSessionSerializer(serializers.ModelSerializer):
