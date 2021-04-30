@@ -9,7 +9,7 @@ from main_api.views import GetUserDetails, ModuleCreateView, LectureSessionCreat
 urlpatterns = [
     path('api-auth/',include('rest_framework.urls')),
     path('admin/', admin.site.urls),
-    path('lesson-create/',ModuleCreateView.as_view(),name="create-teach-session"),
+    path('module-create/',ModuleCreateView.as_view(),name="create-teach-session"),
     path('user-attend/',LectureSessionCreateView.as_view(),name="add-student"),
     path('get-user-by-id/',GetUserDetails.as_view(),name="get-user"),
     path('api/token/',obtain_auth_token,name='obtain-token'),
