@@ -41,7 +41,7 @@ class ModuleCreateView(generics.ListCreateAPIView):
 
         return Module.objects.filter(mod_teacher=user)
 
-class LessonCreateView(generics.ListCreateAPIView):
+class LectureCreateView(generics.ListCreateAPIView):
 
     permission_classes = (IsAdminUser,)
 
