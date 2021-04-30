@@ -62,7 +62,7 @@ class LessonIDCheck(generics.ListCreateAPIView):
     serializer_class = LectureSerializer
 
     def post(self, request, *args, **kwargs):
-        qs = Lecture.objects.filter(lec_id= request.data.get("lec_id"),lec_number= request.data.get("lec_num"),lec_length=request.data.get("lec_len")).values_list('id',flat=True)
+        qs = Lecture.objects.filter(lec_id= request.data.get("lec_id"),lec_number= request.data.get("lec_num"),lec_length=request.data.get("lec_len")).values_list('pk',flat=True)
 
         serializer = LectureSerializer(qs, many=True)
         data = serializer.data
