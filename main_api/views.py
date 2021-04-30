@@ -70,7 +70,7 @@ class TeachingSessionCreateView(generics.ListCreateAPIView):
     serializer_class = TeachingSessionSerializer
     queryset = TeachingSession.objects.all()
 
-    def get(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
         qs = TeachingSession.objects.filter(lesson_id=request.data.get("code"))
 
         serializer = TeachingSessionSerializer(qs,many=True)
