@@ -71,7 +71,7 @@ class TeachingSessionCreateView(generics.ListCreateAPIView):
     queryset = TeachingSession.objects.all()
 
     def get(self, request, *args, **kwargs):
-        TeachingSession.objects.filter(request.data.get("code"))
+        TeachingSession.objects.filter(lesson_id=request.data.get("code"))
 
 
 
