@@ -75,7 +75,7 @@ class TeachingSessionCreateView(generics.ListCreateAPIView):
 
         serializer = TeachingSessionSerializer(qs,many=True)
         data = serializer.data
-        return data["username"]
+        return data
 
 
 
