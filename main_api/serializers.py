@@ -23,7 +23,7 @@ class LectureSessionSerializer(serializers.ModelSerializer):
     class Meta:
         model = LectureSession
         fields = (
-            'username','lecture_id',
+            'username','lecture_id.fk_id',
         )
 
 

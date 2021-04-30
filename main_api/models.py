@@ -11,14 +11,14 @@ class Module(models.Model):
     mod_id = models.IntegerField(primary_key=True)
 
 class Lecture(models.Model):
-    lec_id = models.ForeignKey(Module.mod_id,on_delete=models.CASCADE)
+    lec_id = models.ForeignKey(Module,on_delete=models.CASCADE)
     lec_number = models.IntegerField()
     lec_length = models.IntegerField()
     lec_time = models.DateTimeField(auto_now_add=True)
 
 class LectureSession(models.Model):
     username = models.ForeignKey(user,on_delete=models.CASCADE)
-    lecture_id = models.ForeignKey(Lecture.lec_id,on_delete=models.CASCADE,default=0)
+    lecture_id = models.ForeignKey(Lecture,on_delete=models.CASCADE,default=0)
     timestamp = models.DateTimeField(auto_now_add=True)
 
     class Meta:
