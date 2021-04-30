@@ -3,8 +3,8 @@ from django.contrib import admin
 # Register your models here.
 
 
-from .models import Post, LessonID, TeachingSession
+from .models import Module, Lecture, LectureSession
 
-admin.site.register(Post)
-admin.site.register(TeachingSession)
-admin.site.register(LessonID)
+admin.site.register(Module)
+admin.site.register(Lecture)
+admin.site.register(LectureSession)
