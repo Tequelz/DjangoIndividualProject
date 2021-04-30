@@ -1,22 +1,31 @@
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
 
-from .models import Post, LessonID, TeachingSession
+from .models import Module, LectureSession, Lecture
 
 
-class PostSerializer(serializers.ModelSerializer):
+class ModuleSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Post
+        model = Module
         fields = (
-            'title', 'description','owner'
+            'mod_teacher','mod_name','mod_id',
+            )
+
+
+class LectureSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Lecture
+        fields = (
+            'lec_id','lec_number' ,'lec_time', 'lec_time',
         )
 
-class LessonSerializer(serializers.ModelSerializer):
+class LectureSessionSerializer(serializers.ModelSerializer):
     class Meta:
-        model = LessonID
+        model = LectureSession
         fields = (
-            'lec_id','lec_name', 'lec_number' ,'lec_time', 'lec_teacher',
+            'username','lecture_id',
         )
+
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -25,12 +34,6 @@ class UserSerializer(serializers.ModelSerializer):
             'username','email',
         )
 
-class TeachingSessionSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = TeachingSession
-        fields = (
-            'username','lesson_id',
-        )
 
 class RegisterSerializer(serializers.Serializer):
     username = serializers.CharField()
