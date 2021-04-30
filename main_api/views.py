@@ -48,7 +48,7 @@ class LessonCreateView(generics.ListCreateAPIView):
     serializer_class = LectureSerializer
     queryset = Lecture.objects.all()
 
-    def post(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         qs = Lecture.objects.filter(lec_id=request.data.get('mod_id'))
         serializer = LectureSerializer(qs, many=True)
         data = serializer.data
@@ -60,9 +60,8 @@ class LectureSessionCreateView(generics.ListCreateAPIView):
     queryset = LectureSession.objects.all()
 
 
-    def post(self, request, *args, **kwargs):
-        qs = LectureSession.objects.filter(lecture_id = request.data.get("code"))
-
+    def get(self, request, *args, **kwargs):
+        qs = LectureSession.objects.filter(lecture_id = request.data.get('lec_id'))
         serializer = LectureSessionSerializer(qs,many=True)
         data = serializer.data
         return JsonResponse(data, safe=False)
