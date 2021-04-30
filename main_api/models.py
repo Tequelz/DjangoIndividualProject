@@ -9,6 +9,7 @@ class Module(models.Model):
     mod_teacher = models.ForeignKey(user, on_delete=models.CASCADE)
     mod_name = models.CharField(max_length=100)
     mod_id = models.IntegerField(primary_key=True)
+    mod_course = models.CharField(max_length=100)
 
 class Lecture(models.Model):
     lec_id = models.ForeignKey(Module,on_delete=models.CASCADE)
