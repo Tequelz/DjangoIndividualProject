@@ -16,7 +16,7 @@ from django.contrib.auth import get_user_model
 
 
 
-from .serializers import PostSerializer, LessonSerializer, TeachingSessionSerializer, RegisterSerializer
+from .serializers import PostSerializer, LessonSerializer, TeachingSessionSerializer, RegisterSerializer, UserSerializer
 from .models import Post, LessonID, TeachingSession, user
 
 
@@ -76,6 +76,19 @@ class TeachingSessionCreateView(generics.ListCreateAPIView):
         serializer = TeachingSessionSerializer(qs,many=True)
         data = serializer.data
         return JsonResponse(data, safe=False)
+
+class GetUserDetails(generics.ListCreateAPIView):
+    serializer_class = UserSerializer
+
+
+    def post(self, request, *args, **kwargs):
+        User = get_user_model()
+        qs = User.objects.filter(pk=request.data.get("userID"))
+
+        serializer = UserSerializer(qs, many=True)
+        data = serializer.data
+        return JsonResponse(data, safe=False)
+
 
 
 

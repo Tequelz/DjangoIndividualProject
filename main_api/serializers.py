@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from rest_framework import serializers
 
 from .models import Post, LessonID, TeachingSession
@@ -15,6 +16,13 @@ class LessonSerializer(serializers.ModelSerializer):
         model = LessonID
         fields = (
             'lec_id','lec_name', 'lec_number' ,'lec_time', 'lec_teacher',
+        )
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = get_user_model()
+        fields = (
+            'username','email',
         )
 
 class TeachingSessionSerializer(serializers.ModelSerializer):
