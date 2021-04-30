@@ -12,6 +12,7 @@ class ModuleSerializer(serializers.ModelSerializer):
             )
 
 
+
 class LectureSerializer(serializers.ModelSerializer):
     class Meta:
         model = Lecture
@@ -33,6 +34,8 @@ class UserSerializer(serializers.ModelSerializer):
         fields = (
             'username','email',
         )
+
+
 
 
 class RegisterSerializer(serializers.Serializer):
