@@ -8,7 +8,7 @@ class ModuleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Module
         fields = (
-            'mod_teacher','mod_name','mod_id', 'mod_course',
+            'mod_teacher','mod_name','mod_id',
             )
 
 
