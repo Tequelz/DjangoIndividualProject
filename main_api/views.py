@@ -13,8 +13,8 @@ from django.contrib.auth import get_user_model
 
 
 
-from .serializers import  UserSerializer, LectureSessionSerializer, ModuleSerializer
-from .models import LectureSession, Module
+from .serializers import UserSerializer, LectureSessionSerializer, ModuleSerializer, LectureSerializer
+from .models import LectureSession, Module, Lecture
 
 
 class GetUserDetails(generics.ListCreateAPIView):
@@ -41,6 +41,19 @@ class ModuleCreateView(generics.ListCreateAPIView):
         user = self.request.user
 
         return Module.objects.filter(mod_teacher=user)
+
+class LessonCreateView(generics.ListCreateAPIView):
+
+    permission_classes = (IsAdminUser,)
+
+    serializer_class = LectureSerializer
+    model = Lecture
+
+    def post(self, request, *args, **kwargs):
+        qs = Lecture.objects.filter(lec_id=request.data.get('mod_id'))
+        serializer = LectureSerializer(qs, many=True)
+        data = serializer.data
+        return JsonResponse(data, safe=False)
 
 
 class LectureSessionCreateView(generics.ListCreateAPIView):
