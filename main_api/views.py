@@ -35,7 +35,6 @@ class ModuleCreateView(generics.ListCreateAPIView):
     permission_classes = (IsAdminUser,)
 
     serializer_class = ModuleSerializer
-    model = Module
 
     def get_queryset(self):
         user = self.request.user
@@ -47,7 +46,7 @@ class LessonCreateView(generics.ListCreateAPIView):
     permission_classes = (IsAdminUser,)
 
     serializer_class = LectureSerializer
-    model = Lecture
+    queryset = Lecture.objects.all()
 
     def post(self, request, *args, **kwargs):
         qs = Lecture.objects.filter(lec_id=request.data.get('mod_id'))
