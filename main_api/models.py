@@ -17,7 +17,7 @@ class Lecture(models.Model):
     lec_time = models.DateTimeField(auto_now_add=True)
 
 class LectureSession(models.Model):
-    username =models.ForeignKey(user,on_delete=models.CASCADE)
+    username = models.ForeignKey(user,on_delete=models.CASCADE)
     lecture_id = models.ForeignKey(Lecture,on_delete=models.CASCADE,default=0)
     timestamp = models.DateTimeField(auto_now_add=True)
 
