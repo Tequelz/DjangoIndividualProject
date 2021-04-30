@@ -55,6 +55,19 @@ class LessonCreateView(generics.ListCreateAPIView):
         data = serializer.data
         return JsonResponse(data, safe=False)
 
+class LessonIDCheck(generics.ListCreateAPIView):
+
+    permission_classes = (IsAdminUser,)
+
+    serializer_class = LectureSerializer
+
+    def post(self, request, *args, **kwargs):
+        qs = Lecture.objects.filter(lec_id= request.data.get("lec_id"),lec_number= request.data.get("lec_num"),lec_length=request.data.get("lec_len"))
+
+        serializer = LectureSerializer(qs, many=True)
+        data = serializer.data
+        return JsonResponse(data, safe=False)
+
 
 class LectureSessionCreateView(generics.ListCreateAPIView):
     serializer_class = LectureSessionSerializer
