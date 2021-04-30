@@ -47,6 +47,7 @@ class LectureSessionCreateView(generics.ListCreateAPIView):
     serializer_class = LectureSessionSerializer
     queryset = LectureSession.objects.all()
 
+
     def post(self, request, *args, **kwargs):
         qs = LectureSession.objects.filter(lecture_id = request.data.get("code"))
 

@@ -5,10 +5,11 @@ user = get_user_model()
 
 # Create your models here.
 
-class Module(models.Model):
+class Module(models.Model):#
+    mod_id = models.IntegerField(primary_key=True)
     mod_teacher = models.ForeignKey(user, on_delete=models.CASCADE)
     mod_name = models.CharField(max_length=100)
-    mod_id = models.IntegerField(primary_key=True)
+
 
 class Lecture(models.Model):
     lec_id = models.ForeignKey(Module,on_delete=models.CASCADE)
