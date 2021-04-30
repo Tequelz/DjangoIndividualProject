@@ -57,8 +57,6 @@ class LectureCreateView(generics.ListCreateAPIView):
 
 class LessonIDCheck(generics.ListCreateAPIView):
 
-    permission_classes = (IsAdminUser,)
-
     serializer_class = LectureSerializer
 
     def post(self, request, *args, **kwargs):
