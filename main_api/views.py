@@ -41,7 +41,7 @@ class ModuleCreateView(generics.ListCreateAPIView):
 
         return Module.objects.filter(mod_teacher=user)
 
-class LectureCreateView(generics.ListCreateAPIView):
+class LectureView(generics.ListCreateAPIView):
 
     permission_classes = (IsAdminUser,)
 
@@ -54,6 +54,14 @@ class LectureCreateView(generics.ListCreateAPIView):
         serializer = LectureSerializer(qs, many=True)
         data = serializer.data
         return JsonResponse(data, safe=False)
+
+class LectureCreateView(generics.ListCreateAPIView):
+
+    permission_classes = (IsAdminUser,)
+
+    serializer_class = LectureSerializer
+    # queryset = Lecture.objects.all()
+
 
 class LessonIDCheck(generics.ListCreateAPIView):
 

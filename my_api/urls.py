@@ -4,13 +4,15 @@ from django.urls import path,include
 from rest_framework.authtoken.views import obtain_auth_token
 
 
-from main_api.views import GetUserDetails, ModuleCreateView, LectureSessionCreateView, LectureCreateView, LessonIDCheck
+from main_api.views import GetUserDetails, ModuleCreateView, LectureSessionCreateView, LectureCreateView, LessonIDCheck, \
+    LectureView
 
 urlpatterns = [
     path('api-auth/',include('rest_framework.urls')),
     path('admin/', admin.site.urls),
     path('module-create/',ModuleCreateView.as_view(),name="create-module"),
     path('lecture-create/',LectureCreateView.as_view(),name="create-lecture"),
+    path('lecture-view/',LectureView.as_view(),name="view-lecture"),
     path('lecture-check/',LessonIDCheck.as_view(),name="id-check"),
     path('user-attend/',LectureSessionCreateView.as_view(),name="add-student"),
     path('get-user-by-id/',GetUserDetails.as_view(),name="get-user"),
