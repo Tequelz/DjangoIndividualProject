@@ -49,7 +49,7 @@ class LectureCreateView(generics.ListCreateAPIView):
     # queryset = Lecture.objects.all()
 
     def post(self, request, *args, **kwargs):
-        qs = Lecture.objects.filter(pk=request.data.get("lecID"))
+        qs = Lecture.objects.filter(lec_id=request.data.get("lecID"))
 
         serializer = LectureSerializer(qs, many=True)
         data = serializer.data
