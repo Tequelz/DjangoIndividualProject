@@ -63,7 +63,7 @@ class LectureCreateView(generics.ListCreateAPIView):
     # queryset = Lecture.objects.all()
 
 
-class LessonIDCheck(generics.ListCreateAPIView):
+class LectureIDCheck(generics.ListCreateAPIView):
 
     serializer_class = LectureSerializer
 
