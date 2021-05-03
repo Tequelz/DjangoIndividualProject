@@ -6,15 +6,15 @@ user = get_user_model()
 # Create your models here.
 
 class Module(models.Model):#
-    mod_id = models.IntegerField(primary_key=True)
+    mod_id = models.IntegerField(primary_key=True,max_length=5)
     mod_teacher = models.ForeignKey(user, on_delete=models.CASCADE)
     mod_name = models.CharField(max_length=100)
 
 
 class Lecture(models.Model):
     lec_id = models.ForeignKey(Module,on_delete=models.CASCADE)
-    lec_number = models.IntegerField()
-    lec_length = models.IntegerField()
+    lec_number = models.IntegerField(max_length=2)
+    lec_length = models.IntegerField(max_length=3)
     lec_time = models.DateTimeField(auto_now_add=True)
 
     class Meta:
