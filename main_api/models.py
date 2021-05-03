@@ -17,6 +17,11 @@ class Lecture(models.Model):
     lec_length = models.IntegerField()
     lec_time = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['lec_id', 'lec_number'], name='unique_lecture'),
+        ]
+
 class LectureSession(models.Model):
     username = models.ForeignKey(user,on_delete=models.CASCADE)
     lecture_id = models.ForeignKey(Lecture,on_delete=models.CASCADE,default=0)
