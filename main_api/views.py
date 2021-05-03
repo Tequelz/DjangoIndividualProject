@@ -18,6 +18,9 @@ from .models import LectureSession, Module, Lecture
 
 
 class GetUserDetails(generics.ListCreateAPIView):
+
+    permission_classes = (IsAdminUser,)
+
     serializer_class = UserSerializer
 
 
@@ -75,6 +78,8 @@ class LectureIDCheck(generics.ListCreateAPIView):
         return JsonResponse(qs, safe=False)
 
 class LectureSessionByLesson(generics.ListCreateAPIView):
+    permission_classes = (IsAdminUser,)
+
     serializer_class = LectureSessionSerializer
     queryset = LectureSession.objects.all()
 
