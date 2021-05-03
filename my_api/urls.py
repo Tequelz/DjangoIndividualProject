@@ -6,7 +6,7 @@ from rest_framework.authtoken.views import obtain_auth_token
 
 from main_api.views import GetUserDetails, ModuleCreateView, LectureSessionCreateView, LectureCreateView, \
     LectureIDCheck, \
-    LectureView, LectureSessionByLesson
+    LectureView, LectureSessionByModule
 
 urlpatterns = [
     path('api-auth/',include('rest_framework.urls')),
@@ -16,7 +16,7 @@ urlpatterns = [
     path('lecture-view/',LectureView.as_view(),name="view-lecture"),
     path('lecture-check/',LectureIDCheck.as_view(),name="id-check"),
     path('user-attend/',LectureSessionCreateView.as_view(),name="add-student"),
-    path('class-attendance/',LectureSessionByLesson.as_view(),name="attendance"),
+    path('class-attendance/',LectureSessionByModule.as_view(),name="attendance"),
     path('get-user-by-id/',GetUserDetails.as_view(),name="get-user"),
     path('api/token/',obtain_auth_token,name='obtain-token'),
     path('rest-auth/',include('rest_auth.urls')),

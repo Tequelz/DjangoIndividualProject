@@ -12,7 +12,6 @@ from rest_framework import mixins
 from django.contrib.auth import get_user_model
 
 
-
 from .serializers import UserSerializer, LectureSessionSerializer, ModuleSerializer, LectureSerializer
 from .models import LectureSession, Module, Lecture
 
@@ -77,7 +76,7 @@ class LectureIDCheck(generics.ListCreateAPIView):
         # data = serializer.data
         return JsonResponse(qs, safe=False)
 
-class LectureSessionByLesson(generics.ListCreateAPIView):
+class LectureSessionByModule(generics.ListCreateAPIView):
     permission_classes = (IsAdminUser,)
 
     serializer_class = LectureSessionSerializer

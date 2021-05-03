@@ -38,9 +38,9 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 
-class RegisterSerializer(serializers.Serializer):
-    username = serializers.CharField()
-    lec_name = serializers.CharField(max_length=100)
-    lec_number = serializers.IntegerField()
-    lec_time = serializers.DateTimeField()
-    lec_teacher = serializers.IntegerField()
+# class RegisterSerializer(serializers.Serializer):
+#     username = serializers.CharField()
+#     lec_name = serializers.CharField(max_length=100)
+#     lec_number = serializers.IntegerField()
+#     lec_time = serializers.DateTimeField()
+#     lec_teacher = serializers.IntegerField()
