@@ -1,14 +1,9 @@
-import json
-from itertools import chain
-
-from django.shortcuts import render
 from django.http import JsonResponse, request
 # Create your views here.
 
 #third party api
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework import generics
-from rest_framework import mixins
 from django.contrib.auth import get_user_model
 
 
@@ -66,6 +61,7 @@ class LectureCreateView(generics.ListCreateAPIView):
 
 
 class LectureIDCheck(generics.ListCreateAPIView):
+    permission_classes = (IsAuthenticated,)
 
     serializer_class = LectureSerializer
 
@@ -92,6 +88,9 @@ class LectureSessionByModule(generics.ListCreateAPIView):
 
 
 class LectureSessionCreateView(generics.ListCreateAPIView):
+
+    permission_classes = (IsAuthenticated,)
+
     serializer_class = LectureSessionSerializer
     queryset = LectureSession.objects.all()
 

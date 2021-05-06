@@ -11,8 +11,6 @@ class ModuleSerializer(serializers.ModelSerializer):
             'mod_teacher','mod_name','mod_id',
             )
 
-
-
 class LectureSerializer(serializers.ModelSerializer):
     class Meta:
         model = Lecture
@@ -34,13 +32,3 @@ class UserSerializer(serializers.ModelSerializer):
         fields = (
             'username','email',
         )
-
-
-
-
-# class RegisterSerializer(serializers.Serializer):
-#     username = serializers.CharField()
-#     lec_name = serializers.CharField(max_length=100)
-#     lec_number = serializers.IntegerField()
-#     lec_time = serializers.DateTimeField()
-#     lec_teacher = serializers.IntegerField()
