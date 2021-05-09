@@ -1,10 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Module, Lecture, LectureSession ##import related views from the models file
 
-
-from .models import Module, Lecture, LectureSession
-
-admin.site.register(Module)
+admin.site.register(Module) ##Allow for these models to be viewed and changed on the admin portal
 admin.site.register(Lecture)
 admin.site.register(LectureSession)

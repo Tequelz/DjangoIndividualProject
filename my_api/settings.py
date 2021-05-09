@@ -30,7 +30,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+##Some extra apps have been added mainly related to the rest_framework and allauth
 INSTALLED_APPS = [
     'main_api',
     'rest_framework',
@@ -136,6 +136,7 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+##Extra lines of code has been added here to handle the rest-framework, email backend, and heroku
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
