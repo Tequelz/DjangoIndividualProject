@@ -11,7 +11,7 @@ from main_api.views import GetUserDetails, ModuleCreateView, LectureSessionCreat
 urlpatterns = [
     path('api-auth/',include('rest_framework.urls')),
     path('admin/', admin.site.urls), ##Used for the admin page
-    path('module-create/',ModuleCreateView.as_view(),name="create-module"), #Used to create modules
+    path('module-create/',ModuleCreateView.as_view(),name="create-module"), #Used to create and view modules
     path('lecture-create/',LectureCreateView.as_view(),name="create-lecture"), #Used to create Lectures
     path('lecture-view/',LectureView.as_view(),name="view-lecture"), #Used to view some lectures
     path('lecture-check/',LectureIDCheck.as_view(),name="id-check"), #Used to get the id of a certain lecture
